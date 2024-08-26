@@ -7,15 +7,17 @@ val settings = object : TxniTemplateSettings {
 		}
 
 		override fun addFabric(deps: DependencyHandlerScope) {
-
+			//deps.modImplementation("net.fabricmc:fabric-language-kotlin:1.12.1+kotlin.2.0.20")
+			if (mcVersion == "1.20.1")
+				deps.modRuntimeOnly("curse.maven:chat-heads-407206:5634315")
 		}
 
 		override fun addForge(deps: DependencyHandlerScope) {
-
+			//deps.implementation("curse.maven:kotlin-for-forge-351264:5402061")
 		}
 
 		override fun addNeo(deps: DependencyHandlerScope) {
-
+			//deps.implementation("curse.maven:kotlin-for-forge-351264:5611971")
 		}
 	}
 
@@ -125,8 +127,6 @@ dependencies {
 	settings.depsHandler.addGlobal(this)
 
 	if (isFabric) {
-		modRuntimeOnly("maven.modrinth:sodium:mc1.21-0.6.0-beta.1-fabric")
-
 		settings.depsHandler.addFabric(this)
 		modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fapi")}")
 		modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
@@ -144,8 +144,6 @@ dependencies {
 	}
 
 	if (isNeo) {
-		modRuntimeOnly("maven.modrinth:sodium:mc1.21-0.6.0-beta.1-neoforge")
-
 		settings.depsHandler.addNeo(this)
 		"neoForge"("net.neoforged:neoforge:${property("deps.fml")}")
 	}
@@ -173,6 +171,7 @@ loom {
 		ideConfigGenerated(true)
 		vmArgs("-Dmixin.debug.export=true")
 		programArgs("--username=nthxny") // Mom look I'm in the codebase!
+		programArgs("--uuid=4b83b66f-fea2-41f7-ac3e-ed0f3d54fff2")
 		runDir = "../../run/${stonecutter.current.project}/"
 	}
 

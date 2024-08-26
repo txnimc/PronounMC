@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "toni.pronounmc.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "mixins": [
+    "EntityContentMixin",
+    "MessageHandlerMixin",
+    "PlayerListHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "ClientPlayNetworkHandlerMixin",
+    "EntityRendererMixin",
+    "SocialInteractionsPlayerListEntryMixin"
+  ]
+}
