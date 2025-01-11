@@ -10,6 +10,7 @@ pluginManagement {
 		maven("https://maven.neoforged.net/releases/")
 		maven("https://maven.kikugie.dev/snapshots")
 		maven("https://maven.kikugie.dev/releases")
+		maven("https://maven.txni.dev/releases")
 	}
 }
 
@@ -31,4 +32,4 @@ extensions.configure<StonecutterSettings> {
 	create(rootProject)
 }
 
-rootProject.name = "TxniTemplate"
+rootProject.name = "PronounMC"

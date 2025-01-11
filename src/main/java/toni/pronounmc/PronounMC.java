@@ -7,15 +7,8 @@ import org.apache.logging.log4j.Logger;
 
 
 #if FABRIC
-    import net.fabricmc.api.ClientModInitializer;
-    import net.fabricmc.api.ModInitializer;
-    #if after_21_1
-    import fuzs.forgeconfigapiport.fabric.api.neoforge.v4.NeoForgeConfigRegistry;
-    #endif
-
-    #if current_20_1
-    import fuzs.forgeconfigapiport.api.config.v2.ForgeConfigRegistry;
-    #endif
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.ModInitializer;
 #endif
 
 #if FORGE
@@ -57,20 +50,6 @@ public class PronounMC #if FABRIC implements ModInitializer, ClientModInitialize
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::clientSetup);
         #endif
-//
-//        AllConfigs.register((type, spec) -> {
-//            #if FORGE
-//            ModLoadingContext.get().registerConfig(type, spec);
-//            #elif NEO
-//            modContainer.registerConfig(type, spec);
-//            #elif FABRIC
-//                #if AFTER_21_1
-//                NeoForgeConfigRegistry.INSTANCE.register(PronounMC.MODID, type, spec);
-//                #else
-//                ForgeConfigRegistry.INSTANCE.register(PronounMC.MODID, type, spec);
-//                #endif
-//            #endif
-//        });
     }
 
 
